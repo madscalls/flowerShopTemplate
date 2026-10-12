@@ -1,0 +1,15 @@
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; }
+#root { overflow-x: clip; }
+img { max-width: 100%; }
+img[src*="sunflower-carafe"] { object-position: 72% center !important; }
+
+@media (max-width: 720px) {
+  /* Fixed-size photos from the mockup scale down on phones */
+  [style*="width: 2"], [style*="width: 3"], [style*="width: 4"], [style*="width: 5"] { max-width: 100%; }
+  [title="Leaf decal"] { display: none; }
+}
+
+/* Decorative vines never block clicks */
+[title="Leaf decal"], svg[viewBox="0 0 220 200"] { pointer-events: none; }
