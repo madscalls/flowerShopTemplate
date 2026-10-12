@@ -40,4 +40,6 @@ The pages were generated from the design mockup, so styles are inline and match 
 
 ## Deploying
 
-`public/_redirects` sends every route to `index.html`, so page refreshes work on Cloudflare Pages and Netlify.
+The project deploys to GitHub Pages at https://madscalls.github.io/flowerShopTemplate/. Pushes to `main` build and publish the site through GitHub Actions. The build also generates a `404.html` fallback so React Router routes continue to work when opened or refreshed directly.
+
+For Cloudflare Pages or Netlify, `public/_redirects` sends every route to `index.html`.
