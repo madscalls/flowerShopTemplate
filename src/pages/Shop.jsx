@@ -2,6 +2,7 @@
 import { Fragment, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../theme.js';
+import { assetUrl } from '../assets.js';
 
 const PAGE_CSS = "body{margin:0;background:#2E1C2B;color-scheme:dark}\na{color:#F4EAE4;text-decoration:none}a:hover{color:#8FBF7A}\nselect{background:#FFFFFF;color:#2E1C2B}\nimg[src*=\"sunflower-carafe\"]{object-position:72% center !important}";
 
@@ -117,7 +118,7 @@ export default function Shop() {
 <div style={{display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "64px 32px"}}>
 {v.shown.map((p, $index) => (<Fragment key={$index}><article style={{display: "flex", flexDirection: "column", gap: "14px"}}>
 <div style={{position: "relative", aspectRatio: "1 / 1", borderRadius: p.radius, background: p.bg, display: "flex", alignItems: "center", justifyContent: "center", padding: "16px", boxSizing: "border-box", fontSize: "12px", letterSpacing: "0.06em", textTransform: "uppercase", color: "#F4EAE4", overflow: "hidden"}}>
-{p.hasImg && (<><img src={p.img} alt={p.alt} style={{position: "absolute", inset: "0", width: "100%", height: "100%", objectFit: "cover", borderRadius: "inherit"}} /></>)}
+{p.hasImg && (<><img src={assetUrl(p.img)} alt={p.alt} style={{position: "absolute", inset: "0", width: "100%", height: "100%", objectFit: "cover", borderRadius: "inherit"}} /></>)}
 {p.noImg && (<><span>Arrangement photo</span></>)}
 {p.hasTag && (<><span style={{position: "absolute", top: "16px", right: "16px", padding: "4px 12px", borderRadius: "999px", background: v.leaf, color: "#2E1C2B", fontSize: "11px", fontWeight: "700", letterSpacing: "0.1em"}}>{p.tag}</span></>)}
 </div>

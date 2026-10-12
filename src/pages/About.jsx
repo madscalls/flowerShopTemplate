@@ -2,6 +2,7 @@
 import { Fragment, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../theme.js';
+import { assetUrl } from '../assets.js';
 
 const PAGE_CSS = "body{margin:0;background:#2E1C2B}\na{color:inherit;text-decoration:none}a:hover{opacity:0.75}";
 
@@ -63,9 +64,9 @@ export default function About() {
 <div title="Leaf decal" aria-hidden="true" style={{position: "absolute", right: "-10%", bottom: "-16%", width: "38%", transform: "scaleX(-1)", zIndex: "0"}}>
 
 </div>
-<div style={{position: "relative", gridRow: "span 2", aspectRatio: "1 / 2", borderRadius: "999px 999px 24px 24px", background: "#893168", overflow: "hidden"}}><img src="/images/florist-portrait.jpg" alt="Florist holding a spring bouquet" style={{position: "absolute", inset: "0", width: "100%", height: "100%", objectFit: "cover", borderRadius: "inherit"}} /></div>
-<div style={{position: "relative", aspectRatio: "1 / 1", borderRadius: v.r.leafAlt, background: "#6A2558", marginTop: "64px", width: "198px", height: "205px", overflow: "hidden"}}><img src="/images/florist-at-work.jpg" alt="Florist trimming a branch beside a vase arrangement" style={{position: "absolute", inset: "0", width: "100%", height: "100%", objectFit: "cover", borderRadius: "inherit"}} /></div>
-<div style={{position: "relative", aspectRatio: "1 / 1", borderRadius: v.r.pebble, background: "#4A1942", marginBottom: "-64px", width: "311px", height: "353px", overflow: "hidden"}}><img src="/images/studio-flatlay.jpg" alt="Stems, scissors and ribbon on a studio table" style={{position: "absolute", inset: "0", width: "100%", height: "100%", objectFit: "cover", borderRadius: "inherit"}} /></div>
+<div style={{position: "relative", gridRow: "span 2", aspectRatio: "1 / 2", borderRadius: "999px 999px 24px 24px", background: "#893168", overflow: "hidden"}}><img src={assetUrl("/images/florist-portrait.jpg")} alt="Florist holding a spring bouquet" style={{position: "absolute", inset: "0", width: "100%", height: "100%", objectFit: "cover", borderRadius: "inherit"}} /></div>
+<div style={{position: "relative", aspectRatio: "1 / 1", borderRadius: v.r.leafAlt, background: "#6A2558", marginTop: "64px", width: "198px", height: "205px", overflow: "hidden"}}><img src={assetUrl("/images/florist-at-work.jpg")} alt="Florist trimming a branch beside a vase arrangement" style={{position: "absolute", inset: "0", width: "100%", height: "100%", objectFit: "cover", borderRadius: "inherit"}} /></div>
+<div style={{position: "relative", aspectRatio: "1 / 1", borderRadius: v.r.pebble, background: "#4A1942", marginBottom: "-64px", width: "311px", height: "353px", overflow: "hidden"}}><img src={assetUrl("/images/studio-flatlay.jpg")} alt="Stems, scissors and ribbon on a studio table" style={{position: "absolute", inset: "0", width: "100%", height: "100%", objectFit: "cover", borderRadius: "inherit"}} /></div>
 </div>
 </section>
 
@@ -116,7 +117,7 @@ export default function About() {
 <div style={{display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "40px"}}>
 {v.team.map((t, $index) => (<Fragment key={$index}><div style={{display: "flex", flexDirection: "column", gap: "14px"}}>
 <div style={{position: "relative", aspectRatio: "1 / 1", borderRadius: t.radius, background: t.bg, display: "flex", alignItems: "flex-end", padding: "20px", boxSizing: "border-box", fontSize: "12px", letterSpacing: "0.06em", textTransform: "uppercase", color: "#F4EAE4", overflow: "hidden"}}>
-{t.hasImg && (<><img src={t.img} alt={t.alt} style={{position: "absolute", inset: "0", width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", borderRadius: "inherit"}} /></>)}
+{t.hasImg && (<><img src={assetUrl(t.img)} alt={t.alt} style={{position: "absolute", inset: "0", width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", borderRadius: "inherit"}} /></>)}
 {t.noImg && (<><span>Portrait</span></>)}
 </div>
 <span style={{fontFamily: "'Instrument Serif', serif", fontSize: "28px", lineHeight: "1.2"}}>{t.name}</span>
@@ -135,7 +136,7 @@ export default function About() {
 <Link to="/shop" style={{display: "inline-flex", alignItems: "center", minHeight: "52px", padding: "0 28px", border: "1px solid #2E1C2B", borderRadius: "999px", fontSize: "14px", fontWeight: "600", letterSpacing: "0.06em", textTransform: "uppercase"}}>Shop online</Link>
 </div>
 </div>
-<div style={{position: "relative", flex: "1.4 1 420px", minHeight: "380px", borderRadius: "40px", background: "#E2D3D0", overflow: "hidden"}}><img src="/images/storefront.jpg" alt="Storefront with buckets of roses, ranunculus and anemones" style={{position: "absolute", inset: "0", width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 70%", borderRadius: "inherit"}} /></div>
+<div style={{position: "relative", flex: "1.4 1 420px", minHeight: "380px", borderRadius: "40px", background: "#E2D3D0", overflow: "hidden"}}><img src={assetUrl("/images/storefront.jpg")} alt="Storefront with buckets of roses, ranunculus and anemones" style={{position: "absolute", inset: "0", width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 70%", borderRadius: "inherit"}} /></div>
 </div>
 <div aria-hidden="true" style={{display: "flex", justifyContent: "center", padding: "0 32px 72px"}}>
 <svg width="300" height="45" viewBox="0 0 320 48">

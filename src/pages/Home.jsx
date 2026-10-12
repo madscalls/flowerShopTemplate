@@ -2,6 +2,7 @@
 import { Fragment, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../theme.js';
+import { assetUrl } from '../assets.js';
 
 const PAGE_CSS = "body{margin:0;background:#2E1C2B}\na{color:inherit;text-decoration:none}a:hover{opacity:0.75}\ninput{background:#FFFFFF;color:#2E1C2B}";
 
@@ -100,9 +101,9 @@ export default function Home() {
 </g>
 </svg>
 </div>
-<div style={{position: "absolute", left: "0", top: "11%", width: "56%", aspectRatio: "1 / 1", borderRadius: v.r.leaf, background: "#893168", boxShadow: "0 28px 60px rgba(0,0,0,0.45)", overflow: "hidden"}}><img src="/images/berry-bouquet.jpg" alt="Bouquet of roses, berries and eucalyptus" style={{position: "absolute", inset: "0", width: "100%", height: "100%", objectFit: "cover", borderRadius: "inherit"}} /></div>
-<div style={{position: "absolute", right: "2%", top: "0", width: "36%", aspectRatio: "1 / 1", borderRadius: v.r.arch, background: "#6A2558", boxShadow: "0 22px 48px rgba(0,0,0,0.4)", overflow: "hidden"}}><img src="/images/hydrangea-orchid.jpg" alt="Hydrangeas and peach orchids" style={{position: "absolute", inset: "0", width: "100%", height: "100%", objectFit: "cover", borderRadius: "inherit"}} /></div>
-<div style={{position: "absolute", left: "62%", top: "57%", width: "25%", aspectRatio: "1 / 1", borderRadius: v.r.pebble, background: "#4A1942", boxShadow: "0 18px 40px rgba(0,0,0,0.45)", overflow: "hidden"}}><img src="/images/peach-roses.jpg" alt="Peach and pink roses with white hydrangea" style={{position: "absolute", inset: "0", width: "100%", height: "100%", objectFit: "cover", borderRadius: "inherit"}} /></div>
+<div style={{position: "absolute", left: "0", top: "11%", width: "56%", aspectRatio: "1 / 1", borderRadius: v.r.leaf, background: "#893168", boxShadow: "0 28px 60px rgba(0,0,0,0.45)", overflow: "hidden"}}><img src={assetUrl("/images/berry-bouquet.jpg")} alt="Bouquet of roses, berries and eucalyptus" style={{position: "absolute", inset: "0", width: "100%", height: "100%", objectFit: "cover", borderRadius: "inherit"}} /></div>
+<div style={{position: "absolute", right: "2%", top: "0", width: "36%", aspectRatio: "1 / 1", borderRadius: v.r.arch, background: "#6A2558", boxShadow: "0 22px 48px rgba(0,0,0,0.4)", overflow: "hidden"}}><img src={assetUrl("/images/hydrangea-orchid.jpg")} alt="Hydrangeas and peach orchids" style={{position: "absolute", inset: "0", width: "100%", height: "100%", objectFit: "cover", borderRadius: "inherit"}} /></div>
+<div style={{position: "absolute", left: "62%", top: "57%", width: "25%", aspectRatio: "1 / 1", borderRadius: v.r.pebble, background: "#4A1942", boxShadow: "0 18px 40px rgba(0,0,0,0.45)", overflow: "hidden"}}><img src={assetUrl("/images/peach-roses.jpg")} alt="Peach and pink roses with white hydrangea" style={{position: "absolute", inset: "0", width: "100%", height: "100%", objectFit: "cover", borderRadius: "inherit"}} /></div>
 </div>
 </section>
 
@@ -122,7 +123,7 @@ export default function Home() {
 </div>
 <div style={{display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "32px"}}>
 {v.featured.map((f, $index) => (<Fragment key={$index}><Link to="/shop" style={{display: "flex", flexDirection: "column", gap: "16px"}}>
-<div style={{aspectRatio: "1 / 1", borderRadius: f.radius, background: f.bg, position: "relative", overflow: "hidden"}}><img src={f.img} alt={f.alt} style={{position: "absolute", inset: "0", width: "100%", height: "100%", objectFit: "cover", borderRadius: "inherit"}} /></div>
+<div style={{aspectRatio: "1 / 1", borderRadius: f.radius, background: f.bg, position: "relative", overflow: "hidden"}}><img src={assetUrl(f.img)} alt={f.alt} style={{position: "absolute", inset: "0", width: "100%", height: "100%", objectFit: "cover", borderRadius: "inherit"}} /></div>
 <div style={{display: "flex", justifyContent: "space-between", gap: "12px"}}><span style={{fontFamily: "'Instrument Serif', serif", fontSize: "24px", lineHeight: "1.2"}}>{f.name}</span><span style={{fontSize: "15px", color: "#6B4A63", whiteSpace: "nowrap"}}>[PRICE]</span></div>
 </Link></Fragment>))}
 </div><div aria-hidden="true" style={{display: "flex", justifyContent: "center", padding: "0 32px 72px", height: "-8px", width: "1205px"}}>
@@ -147,7 +148,7 @@ export default function Home() {
 <a href="https://instagram.com" style={{fontSize: "14px", fontWeight: "600", letterSpacing: "0.08em", textTransform: "uppercase", borderBottom: `1px solid ${v.leaf}`, paddingBottom: "4px"}}>@[yourhandle]</a>
 </div>
 <div style={{display: "grid", gridTemplateColumns: "repeat(4, minmax(0, 1fr))", gap: "24px", paddingBottom: "56px"}}>
-{v.gallery.map((g, $index) => (<Fragment key={$index}><div style={{aspectRatio: "1 / 1", borderRadius: g.radius, background: g.bg, marginTop: g.offset, marginBottom: g.offsetNeg, position: "relative", overflow: "hidden"}}><img src={g.img} alt={g.alt} style={{position: "absolute", inset: "0", width: "100%", height: "100%", objectFit: "cover", borderRadius: "inherit"}} /></div></Fragment>))}
+{v.gallery.map((g, $index) => (<Fragment key={$index}><div style={{aspectRatio: "1 / 1", borderRadius: g.radius, background: g.bg, marginTop: g.offset, marginBottom: g.offsetNeg, position: "relative", overflow: "hidden"}}><img src={assetUrl(g.img)} alt={g.alt} style={{position: "absolute", inset: "0", width: "100%", height: "100%", objectFit: "cover", borderRadius: "inherit"}} /></div></Fragment>))}
 </div>
 </div>
 </section>
@@ -161,8 +162,8 @@ export default function Home() {
 <div><Link to="/events" style={{display: "inline-flex", alignItems: "center", minHeight: "52px", padding: "0 28px", background: "#4A1942", color: "#F4EAE4", borderRadius: "999px", fontSize: "14px", fontWeight: "600", letterSpacing: "0.06em", textTransform: "uppercase"}}>Start an inquiry</Link></div>
 </div>
 <div style={{flex: "1 1 420px", display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: "24px", paddingBottom: "64px"}}>
-<div style={{position: "relative", aspectRatio: "1 / 1", borderRadius: v.r.arch, background: "#893168", overflow: "hidden"}}><img src="/images/wedding-cake.jpg" alt="Wedding cake table with floral arrangements" style={{position: "absolute", inset: "0", width: "100%", height: "100%", objectFit: "cover", borderRadius: "inherit"}} /></div>
-<div style={{position: "relative", aspectRatio: "1 / 1", borderRadius: v.r.leaf, background: "#4A1942", marginTop: "64px", marginBottom: "-64px", overflow: "hidden"}}><img src="/images/blue-vase-orchid.jpg" alt="White orchids and greenery in a blue vase" style={{position: "absolute", inset: "0", width: "100%", height: "100%", objectFit: "cover", borderRadius: "inherit"}} /></div>
+<div style={{position: "relative", aspectRatio: "1 / 1", borderRadius: v.r.arch, background: "#893168", overflow: "hidden"}}><img src={assetUrl("/images/wedding-cake.jpg")} alt="Wedding cake table with floral arrangements" style={{position: "absolute", inset: "0", width: "100%", height: "100%", objectFit: "cover", borderRadius: "inherit"}} /></div>
+<div style={{position: "relative", aspectRatio: "1 / 1", borderRadius: v.r.leaf, background: "#4A1942", marginTop: "64px", marginBottom: "-64px", overflow: "hidden"}}><img src={assetUrl("/images/blue-vase-orchid.jpg")} alt="White orchids and greenery in a blue vase" style={{position: "absolute", inset: "0", width: "100%", height: "100%", objectFit: "cover", borderRadius: "inherit"}} /></div>
 </div>
 </div>
 <div aria-hidden="true" style={{display: "flex", justifyContent: "center", padding: "0 32px 72px"}}>
